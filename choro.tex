@@ -1,0 +1,36 @@
+\documentclass[10pt,a4paper]{ltjsarticle}
+\usepackage[top=3truemm,bottom=3truemm,left=3truemm,right=3truemm]{geometry}
+\usepackage{subfiles}
+\usepackage{amsmath}%align
+\usepackage{ascmac}%枠
+\usepackage{multicol}%二段組
+\usepackage{amssymb} %overarrow
+%\usepackage{amsfonts}
+%\usepackage{mathbbol}%mathbb{x}
+\newcommand{\cnn}{\mathbb{C}^{n \times n}}
+\newcommand{\A}[1]{A_#1}
+\newcommand{\aA}[1]{A^{\ast}_#1}
+\newcommand{\gA}[1]{\grave{A_#1}}
+\newcommand{\gaA}[1]{\grave{A^{\ast}_#1}}
+\newcommand{\K}[1]{K_#1}
+\newcommand{\aK}[1]{K^{\ast}_#1}
+\newcommand{\gK}[1]{\grave{K_#1}}
+\newcommand{\gaK}[1]{\grave{K^{\ast}_#1}}
+\newcommand{\U}[1]{U_#1}
+\newcommand{\aU}[1]{U^{\ast}_#1}
+\newcommand{\gU}[1]{\grave{U_#1}}
+\newcommand{\gaU}[1]{\grave{U^{\ast}_#1}}
+\pagestyle{empty}
+\nonumber
+\begin{document}
+\subfile{san}
+
+ただし
+\begin{gather}%中央ぞろえの数式環境
+    Aの固有値を\lambda(A) = \{\lambda_1,\lambda_2 \cdots \lambda_n\} と表す\\
+    転置A^t,随伴 A^{\ast}は右肩に乗せる\\
+    随伴A^{\ast}とは共軛転置\overline{A^t}=\overline{A}^tのこと\\
+    エルミート行列 は A^{\star}=A           を満たす\\
+    ユニタリ行列   は U^{\star}U=UU^{\star} を満たす\\
+\end{gather}
+\end{document}

@@ -1,0 +1,82 @@
+\documentclass[./choro]{subfiles}
+%\setcounter{section}{1}
+\renewcommand{\baselinestretch}{0}
+\begin{document}
+%{{{ フォントサイズ
+%\fontsize{20pt}{0pt}\selectfont
+%\large
+%\tiny
+%\scriptsize
+\footnotesize
+%\small
+%\normalsize
+%\large
+%\Large
+%\LARGE
+%\huge
+%\Huge
+%}}}
+%$A\rm{A}\bf{A}_1$
+%$\mathbb{x}$
+
+%{{{multicols
+%\begin{multicols}{3}
+%    \subfile{toiori}
+%    \begin{align}
+%        \gA{1} &= \gaU{1} \A{1} \gU{1} &
+%        \gA{2} &= \gaU{2} \A{2} \gU{2} \\
+%               &= diag(\lambda(\A{1})) &
+%               &= diag(\lambda(\A{2})) \\
+%        \gK{1} &= \gaU{1} \K{1}        &
+%        \gK{2} &= \gaU{2} \K{2}        \\
+%    \end{align}
+%    \subfile{kityaku}
+%\end{multicols}
+%}}}
+
+\begin{minipage}{0.3\hsize}
+    \subfile{toiori}
+\end{minipage}
+\begin{minipage}{0.35\hsize}
+    \vspace{2cm}
+    \begin{itembox}[l]{対角化}
+        $A_1,A_2$はエルミート行列なのでユニタリ行列をとってきて対角化できる
+        \begin{align*}
+            \gA{1} &= \aU{1} \A{1} \U{1} &
+            \gA{2} &= \aU{2} \A{2} \U{2} \\
+                   &= diag(\lambda(\A{1})) &
+                   &= diag(\lambda(\A{2})) \\
+        \end{align*}
+        あたらしく$K$を取り直す
+        \begin{align*}
+            \gK{1} &= \aU{1} \K{1}        &
+            \gK{2} &= \aU{2} \K{2}        \\
+        \end{align*}
+    \end{itembox}
+        ---------------------------------------------------------------------▶
+    \begin{itembox}[l]{問題の同値性}
+        \begin{align*}
+            &               & \aK{1} \K{1} &+
+                              \aK{2} \K{2} = I \\
+            &\Leftrightarrow& \aK{1} \U{1}\aU{1} \K{1} &+
+                              \aK{2} \U{2}\aU{2}\K{2} = I \\
+            &\Leftrightarrow& (\aU{1}\K{1})^{\ast} (\aU{1} \K{1}) &+ 
+                              (\aU{2}\K{2})^{\ast} (\aU{2} \K{2}) = I \\
+            &\Leftrightarrow& \gaK{1} \gK{1} &+ \gaK{2} \gK{2} = I
+        \end{align*}
+        \begin{align*}
+            &  & \aK{1} \A{1} \K{1} &+ \aK{2} \A{2} \K{2}  \\
+            &= & \aK{1} \U{1}\aU{1} \A{1} \aU{1}\U{1} \K{1} &+
+                 \aK{2} \U{2}\aU{2} \A{2} \aU{2}\U{2} \K{2}  \\
+            &= & \aK{1} \U{1} \gA{1}\U{1} \K{1} &+
+                 \aK{2} \U{2} \gA{2}\U{2} \K{2}  \\
+            &= & (\aU{1}\K{1})^{\ast} \gA{1} (\aU{1} \K{1}) &+ 
+                 (\aU{2}\K{2})^{\ast} \gA{2} (\aU{2} \K{2}) \\
+            &= & \gaK{1} \gA{1} \gK{1} &+ \gaK{2} \gA{2} \gK{2} 
+        \end{align*}
+    \end{itembox}
+\end{minipage}
+\begin{minipage}{0.3\hsize}
+    \subfile{kityaku}
+\end{minipage}
+\end{document}
