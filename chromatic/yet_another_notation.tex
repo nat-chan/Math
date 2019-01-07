@@ -1,0 +1,79 @@
+\documentclass{ltjsarticle}
+\usepackage[top=3truemm,bottom=3truemm,left=3truemm,right=3truemm]{geometry}
+\usepackage{graphicx}
+%\usepackage{subfiles}
+%\usepackage{lastpage}
+%\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{ascmac}
+\usepackage{url}       % \urlでエスケープなしでurlを表示
+%\usepackage{listings}  % ソースコード
+%\usepackage{color}
+%\usepackage{here}      % figureで[H]を使えるようにする
+\usepackage{mathtools} % 参照している式番号のみを表示
+\mathtoolsset{showonlyrefs=true}
+%\usepackage{bm} % \bm{}でbold,italicでベクトルを表す
+%\lstset{
+%	numbers=left,
+%	numbersep=1em,
+%%	numberstyle=\tiny\color{red}\noaccsupp,
+%	frame=single,
+%%	framesep=\fboxsep,
+%%	framerule=\fboxrule,
+%%	rulecolor=\color{red},
+%%	xleftmargin=\dimexpr\fboxsep+\fboxrule\relax,
+%%	xrightmargin=\dimexpr\fboxsep+\fboxrule\relax,
+%	breaklines=true,
+%	columns=flexible,
+%	basicstyle=\ttfamily\footnotesize,
+%	tabsize=4
+%}
+%\graphicspath{{../images/}} %実は相対パスで指定してる
+%\nonumber
+%\renewcommand{\headrulewidth}{0pt} %\headrulewidthは未定義
+%\renewcommand{\footrulewidth}{0pt}
+\usepackage{luatexja-fontspec}
+
+\setmainfont[Ligatures=TeX]{TeXGyreTermes}
+\setsansfont[Ligatures=TeX]{TeXGyreHeros}
+
+\setmainjfont[BoldFont=IPAexGothic]{IPAexMincho}
+\setsansjfont{IPAexGothic}
+
+\renewcommand{\thesubsection}{(\thesection--\arabic{subsection})}
+\renewcommand{\thesubsubsection}{\thesubsection}
+\newcommand{\↊}{\rotatebox[origin=c]{180}{2}}
+\newcommand{\↋}{\rotatebox[origin=c]{180}{3}}
+\begin{document}
+\begin{gather}
+	\|x,y\|=12\left|\log_2\frac{x}{y} \right| \\
+	12進数:0,1,2,3,4,5,6,7,8,9,\chi χ=\↊,\varepsilon ε=\↋ \\
+	メジャースケール:0,2,4,5,7,9,11,12\\
+	\begin{array}{cccccccc}
+		C&D&E&F&G&A&B&C\\
+		0&2&4&5&7&9&11&12
+	\end{array}\\
+	\begin{array}{ccccccccccccc}
+		C   & C^\#  & D     & D^\#  & E     & F       & F^\#  & G       & G^\#  & A     & A^\#  & B     & C\\
+		0   & 1     & 2     & 3     & 4     & 5       & 6     & 7       & 8     & 9     & 10    & 11    & 12\\
+		1度 & 短2度 & 長2度 & 短3度 & 長3度 & 完全4度 & 増4度 & 完全5度 & 短6度 & 長6度 & 短7度 & 長7度 & 8度\\
+		1:1 &       &       &       & 4:5   & 3:4     &       & 2:3     &       &       &       &       & 1:2
+	\end{array}\\
+	構成音のナンバーを昇順に\{a_i\}_{i=1}^{n}\in \mathbb{N}^{\ast}\\
+	(a_1 |\{a_{i+1}-a_{i+1}\}_{i=1}^{n-1})\\
+	C_△→(0|43)\\
+	C_m→(0|34)\\
+	C_{aug}→(0|44)\\
+	C_{△7}→(0|434)\\
+	C_{m7}→(0|343)\\
+	平行移動:\\
+	C^\#_△→(1|43)\\
+	A_m→(9|34)\\
+	転回形:\\
+		(b_1 | b_2 b_3\ldots b_n)→ \left(b_1+b_2 \mid b_3\ldots b_n, b_1+12-\sum_{i=2}^n b_i\right)
+\end{gather}
+ノートナンバー:真ん中のCが60
+
+440hz:中央A
+\end{document}
