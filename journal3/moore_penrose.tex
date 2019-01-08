@@ -1,0 +1,147 @@
+\documentclass{ltjsarticle}
+\title{レポートⅢ}
+\author{201611353 荻野夏樹}
+\usepackage{graphicx}
+\usepackage[unicode,bookmarksnumbered]{hyperref} %PDFで自動的に目次
+%\usepackage[top=3truemm,bottom=3truemm,left=3truemm,right=3truemm]{geometry}
+\usepackage{subfiles}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{ascmac}
+\usepackage{url}       % \urlでエスケープなしでurlを表示
+\usepackage{listings}  % ソースコード
+\usepackage{color}
+\usepackage{here}      % figureで[H]を使えるようにする
+\usepackage{mathtools} % 参照している式番号のみを表示
+\usepackage{bm} % \bm{}でbold,italicでベクトルを表す
+\lstset{
+	numbers=left,
+	numbersep=1em,
+%	numberstyle=\tiny\color{red}\noaccsupp,
+	frame=single,
+%	framesep=\fboxsep,
+%	framerule=\fboxrule,
+%	rulecolor=\color{red},
+%	xleftmargin=\dimexpr\fboxsep+\fboxrule\relax,
+%	xrightmargin=\dimexpr\fboxsep+\fboxrule\relax,
+	breaklines=true,
+	columns=flexible,
+	basicstyle=\ttfamily\footnotesize,
+	tabsize=4
+}
+\graphicspath{{../images/}} %実は相対パスで指定してる
+%\nonumber
+\mathtoolsset{showonlyrefs=true}
+\makeatletter %@を含むコマンドを有効
+\date{\today}
+
+\pagestyle{fancy}
+
+% headers & footers
+\lhead{数理メディア情報学　\@title　提出日：\@date\\\@author}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{\thepage /\pageref{LastPage}}
+\rfoot{}
+\makeatother %@を含むコマンドを無効
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\thesubsection}{(\alph{subsection})}
+\renewcommand{\thesubsubsection}{\thesubsection}
+\newcommand{\flac}[2]{\displaystyle\frac{#1}{#2}}
+\begin{document}
+\section{以下の定義を書き説明せよ}
+\subsection{一般逆行列}
+線形方程式$Tf=g$を解きたいが、$T$が正方・正則でないとき、$g \simeq T^-f$となるような$T^-$を一般逆行列と呼ぶ。
+~\ref{MP}で定義されるMoore-Penroseの一般逆作用素$T^\dagger$とは異なり一意に定まらない。
+
+\subsection{最小二乗解}
+\label{square}
+作用素$T$のdomainを$D(T)$としたとき、以下の問題の解が最小二乗解である。
+\begin{align}
+   \min_{f\in D(T)}\left\| Tf-g \right\|^2
+\end{align}
+
+\subsection{最小ノルム解}
+\label{norm}
+一般に最小二乗解は一意に定まらない。最小二乗解の集合を$S$としたとき、以下の問題の解が最小ノルム解である。
+最小ノルム解は一意に定まる。
+\begin{align}
+   \min_{g\in S}\left\| g \right\|
+\end{align}
+
+\subsection{反射的}
+集合$X$において、二項関係$R$が反射的である。とは以下の関係が成り立つことを指す。
+\begin{align}
+    \forall a \in X, aRa
+\end{align}
+\subsection{最小二乗最小ノルム解}
+~\ref{square}と~\ref{norm}をともに満たす解である。
+~\ref{MP}で定義されるMoore-Penroseの一般逆作用素$T^\dagger$を用いて
+\begin{align}
+    T^-f
+\end{align}
+と表現できる。
+
+\section{$T^-$が$T$の一般逆作用素である$\Leftrightarrow T T^- T=T$を示せ。}
+$T^-$が$T$の一般逆作用素ならば$T^-$は次の2つのどちらかで表せる。
+\begin{align}
+    T^- = (T^t T)^{-1} T^t
+\end{align}
+\begin{align}
+    T^- = T^t (TT^t )^{-1}
+\end{align}
+どちらも$T T^- T=T$を満たす。また必ず$T^tT,TT^t$のどちらか正則なのでこの時に限ることが分かる。
+\section{$T^-$が$T$の最小二乗型一般逆作用素である$\Leftrightarrow T T^- =(TT^-)^{\ast}$を示せ。}
+$TT^-$が直行射影行列であることとエルミート性を満たすことは同値である。
+従って\ref{square}において、$g$は$f$を列空間に直行射影したベクトルとなり、
+\begin{align}
+    \left\| Tf-g \right\|^2
+\end{align}
+は最小となる。よって題意は示された。
+\section{$T^-$が$T$の最小ノルム型一般逆作用素である$\Leftrightarrow T^- T =(T^- T)^{\ast}$を示せ。}
+\ref{norm}において、$g$は$T$の行成分と$Ker(T)$の成分に分けて以下のように書ける。
+\begin{align}
+    g  = g' + g^\bot 
+\end{align}
+行空間と$Ker(A)$が直交するため以下が成り立つ。
+\begin{align}
+    \left\| g \right\|^2 = \left\| g' \right\|^2 + \left\| g^\bot \right\|^2
+\end{align}
+従って$g^\bot=0$の時ノルムは最小になるが、これは$T^- T$が行空間への直行射影行列の時に限る。
+これはエルミート性と同値であるので題意は示された。
+
+\section{以下で定義されるMoore-Penroseの一般逆作用素$T^\dagger$が、一意に定まることを示せ。(最小二乗最小ノルム解の一意性)}
+\label{MP}
+\subsection{$T T^\dagger T = T$}
+\label{a}
+\subsection{$T^\dagger T T^\dagger = T^\dagger$}
+\label{b}
+\subsection{$T T^\dagger = (T T^\dagger)^\ast$}
+\label{c}
+\subsection{$T^\dagger T = (T^\dagger T)^\ast$}
+\label{d}
+異なる$X,Y$が~\ref{a}~\ref{b}~\ref{c}~\ref{d}を満たすと仮定すると
+\begin{align}
+    X & = XTX                 & ~\ref{b}より & & Y & = YTY                  & ~\ref{b}より & \\
+      & = X(TX)^\ast          & ~\ref{c}より & &   & = (YT)^\ast Y          & ~\ref{d}より & \\
+      & = X(TYTX)^\ast        & ~\ref{a}より & &   & = (YTXT)^\ast Y        & ~\ref{a}より & \\
+      & = X(TX)^\ast(TY)^\ast &              & &   & = (XT)^\ast(YT)^\ast Y &              & \\
+      & = XTXTY               & ~\ref{c}より & &   & = XTYTY                & ~\ref{d}より & \\
+      & = XTY                 & ~\ref{a}より & &   & = XTY                  & ~\ref{a}より &
+\end{align}
+となり$X,Y$が一致し、矛盾する。従って~\ref{a}~\ref{b}~\ref{c}~\ref{d}を同時に満たす$T^\dagger$は一意である。
+\section{参考文献}
+英語版WikipediaよりMoore–Penrose inverse(2018年9月29日 17:44版の固定リンク)\\
+\url{https://en.wikipedia.org/w/index.php?title=Moore%E2%80%93Penrose_inverse&oldid=861741033} \\
+日本語版Wikipediaより反射関係(2017年4月17日10:54版の固定リンク) \\
+\url{https://ja.wikipedia.org/w/index.php?title=%E5%8F%8D%E5%B0%84%E9%96%A2%E4%BF%82&oldid=63785223} \\
+早稲田大学 杉本憲治郎による一般逆行列の解説 \\
+\url{https://www.slideshare.net/wosugi/ss-79624897} \\
+擬逆行列 \\
+\url{https://github.com/takseki/memo/wiki/%E6%93%AC%E9%80%86%E8%A1%8C%E5%88%97}
+\end{document}
